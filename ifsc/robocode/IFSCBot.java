@@ -42,8 +42,9 @@ public class IFSCBot extends Robot
 	 */
 	public void onHitByBullet(HitByBulletEvent e) {
 		// Replace the next line with any behavior you would like
-		back(10);
-	}
+         turnRight(45);
+         back(20);
+    }
 	
 	/**
 	 * onHitWall: What to do when you hit a wall
