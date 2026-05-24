@@ -2,21 +2,13 @@ package ifsc.robocode;
 import robocode.*;
 import java.awt.Color;
 
-// API help : https://robocode.sourceforge.io/docs/robocode/robocode/Robot.html
+// IFSCBot - a robot by (Luan, Ana B, Cauã, Sarah)
 
-/**
- * IFSCBot - a robot by (your name here)
- */
 public class IFSCBot extends Robot
 {
-	/**
-	 * run: IFSCBot's default behavior
-	 */
+	
 	public void run() {
-		// Initialization of the robot should be put here
-
-		// After trying out your robot, try uncommenting the import at the top,
-		// and the next line:
+		
 		setColors(Color.red,Color.blue,Color.green);
 
 		while(true) {
@@ -30,49 +22,40 @@ public class IFSCBot extends Robot
 		}
 	}
 
-	/**
-	 * onScannedRobot: What to do when you see another robot
-	 */
 	public void onScannedRobot(ScannedRobotEvent e) {
-		// Replace the next line with any behavior you would like
+
     turnGunRight(e.getBearing());
 
     double distancia = e.getDistance();
 
-    if (distancia < 100) {
+    if (getGunHeat() == 0) {
 
-        fire(3);
+        if (distancia < 100) {
+            fire(3);
 
-    } else if (distancia < 300) {
+        } else if (distancia < 300) {
+            fire(2);
 
-        fire(2);
-
-    } else {
-
-        fire(1);
-		  ahead(80);
+        } else {
+            fire(1);
+        }
     }
 
+    
     if (Math.random() > 0.5) {
-        turnLeft(20);
+        turnRight(30);
     } else {
-        turnRight(20);
+        turnLeft(30);
     }
-}
-	
 
-	/**
-	 * onHitByBullet: What to do when you're hit by a bullet
-	 */
+    ahead(50);
+}
 	public void onHitByBullet(HitByBulletEvent e) {
-		// Replace the next line with any behavior you would like
+		
          turnRight(45);
          back(20);
     }
 	
-	/**
-	 * onHitWall: What to do when you hit a wall
-	 */
 	public void onHitWall(HitWallEvent e) {
 		
 		 back(100);
@@ -82,7 +65,6 @@ public class IFSCBot extends Robot
     } else {
         turnRight(90);
     }
-
 
     ahead(120);
 
