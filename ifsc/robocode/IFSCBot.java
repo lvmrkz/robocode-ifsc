@@ -35,8 +35,24 @@ public class IFSCBot extends Robot
 	 */
 	public void onScannedRobot(ScannedRobotEvent e) {
 		// Replace the next line with any behavior you would like
-		fire(1);
-	}
+    turnGunRight(e.getBearing());
+
+    double distancia = e.getDistance();
+
+    if (distancia < 100) {
+
+        fire(3);
+
+    } else if (distancia < 300) {
+
+        fire(2);
+
+    } else {
+
+        fire(1);
+    }
+}
+	
 
 	/**
 	 * onHitByBullet: What to do when you're hit by a bullet
