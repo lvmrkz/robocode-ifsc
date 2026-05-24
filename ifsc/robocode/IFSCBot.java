@@ -1,6 +1,6 @@
 package ifsc.robocode;
 import robocode.*;
-//import java.awt.Color;
+import java.awt.Color;
 
 // API help : https://robocode.sourceforge.io/docs/robocode/robocode/Robot.html
 
@@ -17,8 +17,7 @@ public class IFSCBot extends Robot
 
 		// After trying out your robot, try uncommenting the import at the top,
 		// and the next line:
-
-		// setColors(Color.red,Color.blue,Color.green); // body,gun,radar
+		setColors(Color.red,Color.blue,Color.green);
 
 		// Robot main loop
 		while(true) {
