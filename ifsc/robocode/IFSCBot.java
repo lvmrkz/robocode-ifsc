@@ -51,7 +51,17 @@ public class IFSCBot extends Robot
 	 * onHitWall: What to do when you hit a wall
 	 */
 	public void onHitWall(HitWallEvent e) {
-		// Replace the next line with any behavior you would like
-		back(20);
+		
+		 back(100);
+
+    if (e.getBearing() > 0) {
+        turnLeft(90);
+    } else {
+        turnRight(90);
+    }
+
+
+    ahead(120);
+
 	}	
 }
