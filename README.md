@@ -1,9 +1,9 @@
 # Projeto Robocode
 
-Projeto da disciplina utilizando Git e GitHub.
+Projeto da disciplina de Introdução à Computação utilizando Git e GitHub.
 
 Integrantes:
 - Luan Prates Marcelino
 - Sarah de Melo Mendes
-- Caua Marques Cabral
+- Cauã Marques Cabral
 - Ana Beatriz Neves
