@@ -50,6 +50,13 @@ public class IFSCBot extends Robot
     } else {
 
         fire(1);
+		  ahead(80);
+    }
+
+    if (Math.random() > 0.5) {
+        turnLeft(20);
+    } else {
+        turnRight(20);
     }
 }
 	
