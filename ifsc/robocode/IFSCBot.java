@@ -4,69 +4,60 @@ import java.awt.Color;
 
 // IFSCBot - a robot by (Luan, Ana B, Cauã, Sarah)
 
-public class IFSCBot extends Robot
-{
-	
-	public void run() {
-		
-		setColors(Color.red,Color.blue,Color.green);
+public class IFSCBot extends Robot {
 
-		while(true) {
-			ahead(150);
-			turnRight(90);
+    public void run() {
 
-			turnGunRight(360);
+        setColors(Color.white, Color.yellow, Color.yellow);
 
-			back(100);
-			turnLeft(90);
-		}
-	}
+        while(true) {
 
-	public void onScannedRobot(ScannedRobotEvent e) {
-
-    turnGunRight(e.getBearing());
-
-    double distancia = e.getDistance();
-
-    if (getGunHeat() == 0) {
-
-        if (distancia < 100) {
-            fire(3);
-
-        } else if (distancia < 300) {
-            fire(2);
-
-        } else {
-            fire(1);
+            turnGunRight(360);
+            ahead(100);
+            turnRight(45);
         }
     }
 
-    
-    if (Math.random() > 0.5) {
+    public void onScannedRobot(ScannedRobotEvent e) {
+
+        double angulo =
+            getHeading() - getGunHeading() + e.getBearing();
+
+        turnGunRight(angulo);
+
+        double distancia = e.getDistance();
+
+        if (getGunHeat() == 0) {
+
+            if (distancia < 100) {
+                fire(3);
+
+            } else if (distancia < 300) {
+                fire(2);
+
+            } else {
+                fire(1);
+            }
+        }
+
+        if (distancia < 150) {
+            back(50);
+        } else {
+            ahead(50);
+        }
+
         turnRight(30);
-    } else {
-        turnLeft(30);
     }
 
-    ahead(50);
-}
-	public void onHitByBullet(HitByBulletEvent e) {
-		
-         turnRight(45);
-         back(20);
-    }
-	
-	public void onHitWall(HitWallEvent e) {
-		
-		 back(100);
+    public void onHitByBullet(HitByBulletEvent e) {
 
-    if (e.getBearing() > 0) {
-        turnLeft(90);
-    } else {
+        turnRight(90);
+        ahead(100);
+    }
+
+    public void onHitWall(HitWallEvent e) {
+
+        back(100);
         turnRight(90);
     }
-
-    ahead(120);
-
-	}	
 }
